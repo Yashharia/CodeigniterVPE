@@ -33,6 +33,22 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->group('api', function ($routes) {
+	$routes->group('presentation', function ($routes) {
+		$routes->get('findall', 'PresentationRestController::findAll');
+		$routes->get('find/(:any)', 'PresentationRestController::find/$1');
+		$routes->post('create', 'PresentationRestController::create');
+		$routes->put('update', 'PresentationRestController::update');
+		$routes->delete('delete/(:any)', 'PresentationRestController::delete/$1');
+	});
+});
+
+$routes->get('/add-presentation', 'Home::addpresentation', ['filter' => 'auth']);
+
+$routes->group('admin', function ($routes) {
+	$routes->add('users', 'Admin\Users::index');
+	$routes->add('blog', 'Admin\Blog::index');
+});
 /**
  * --------------------------------------------------------------------
  * Additional Routing

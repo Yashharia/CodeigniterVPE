@@ -33,7 +33,7 @@ class Home extends BaseController
 		$this->template('staticpages/antitrust-guidelines');
 	}
 
-	public function vpemediapartner()
+	public function vpe_media_partner()
 	{
 		$this->template('staticpages/vpe-media-partner');
 	}
@@ -59,6 +59,8 @@ class Home extends BaseController
 
 	public function addpresentation()
 	{
+		$presentation = new ModPresentation();
+
 		$this->template('forms/add-presentation');
 		echo view('forms/repeater');
 	}
@@ -74,7 +76,12 @@ class Home extends BaseController
 		helper(['form', 'url']);
 		$myrequest = \Config\Services::request();
 		$session = \Config\Services::session();
+		$database = \Config\Database::connect();
+		$speakersdb = $database->table('speakers');
 
+		$files = $this->request->getFileMultiple("speaker_headshots");
+		$speakerNames =  $myrequest->getPost('speakerNames');
+		$speakerJobTitles =  $myrequest->getPost('speaker_job_titles');
 
 
 
@@ -87,15 +94,10 @@ class Home extends BaseController
 		$data['preferred_time'] = $myrequest->getPost('preferred_time');
 		$data['timezone'] = $myrequest->getPost('timezone');
 		$data['description'] = $myrequest->getPost('description');
-		$data['speaker_headshots'] = implode('||', $myrequest->getPost('speaker_headshots'));
-		$data['speaker_full_names'] = implode('||', $myrequest->getPost('speaker_full_names'));
-		$data['speaker_job_titles'] = implode('||', $myrequest->getPost('speaker_job_titles'));
-		$data['email_addresses'] = implode('||', $myrequest->getPost('email_addresses'));
+		$data['email_addresses'] =  $myrequest->getPost('email_address');
 		$data['watch_presentation'] = $myrequest->getPost('watch_presentation');
 		$data['presentation_image'] = $myrequest->getPost('presentation_image');
 		$data['speaker_youtube_video'] = $myrequest->getPost('speaker_youtube_video');
-		$data['exhibitor_button_name'] = $myrequest->getPost('exhibitor_button_name');
-		$data['exhibitor_button_link'] = $myrequest->getPost('exhibitor_button_link');
 		$data['conference_link'] = $myrequest->getPost('conference_link');
 		$data['download_btn_show_hide'] = $myrequest->getPost('download_btn_show_hide');
 		$data['u_id'] = $myrequest->getPost('u_id');
@@ -103,5 +105,21 @@ class Home extends BaseController
 		$data['category_id'] = $myrequest->getPost('category_id');
 
 		$presentation->insert($data);
+		$insert_id = $presentation->getInsertID();
+
+		$finalArray = [];
+
+		for ($i = 0; $i < count($files); $i++) {
+			echo '<br>File Name' . $files[$i]->getName();
+			echo '<br>Speaker Name' . $speakerNames[$i];
+			echo '<br>Speaker Job Title' . $speakerJobTitles[$i];
+			echo '<br>File Random Name' . $files[$i]->getRandomName();
+			echo '<br>File Extension' . $files[$i]->getExtension();
+			echo '<br> ------------------------';
+			$files[$i]->move('./public/uploads', $files[$i]->getRandomName());
+			array_push($finalArray, ['image' => $files[$i]->getRandomName(), 'full_name' => $speakerNames[$i], 'job_title' => $speakerJobTitles[$i], 'presentation_id' => $insert_id]);
+		}
+
+		$speakersdb->insertBatch($finalArray);
 	}
 }

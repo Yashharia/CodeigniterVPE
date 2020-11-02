@@ -25,6 +25,7 @@ class User extends BaseController
 
     public function index()
     {
+
         return redirect()->to(site_url('/signin'));;
     }
 
@@ -41,7 +42,7 @@ class User extends BaseController
         echo view('templates/footer');
     }
 
-    public function presenterregister()
+    public function presenter_register()
     {
         $session = \Config\Services::session();
         helper('form');
@@ -52,7 +53,7 @@ class User extends BaseController
         echo view('templates/footer');
     }
 
-    public function exhibitorregister()
+    public function exhibitor_register()
     {
         $session = \Config\Services::session();
         helper('form');
@@ -114,7 +115,7 @@ class User extends BaseController
 
 
             $message = "Please activate the account " . anchor('user/activate/' . $data['u_link'], 'Activate Now', '');
-            $checkAlreadyUser = $users->where('u_email', $data['u_email'])->findAll();
+            $checkAlreadyUser = $users->where('u_email', $data['u_email'])->find();
             if (count($checkAlreadyUser) > 0) {
                 $session->setFlashdata('message', 'This email: ' . $data['u_email'] . ' already exist.');
                 if ($myrequest->getPost('form_name') == "presenter") {
@@ -214,6 +215,7 @@ class User extends BaseController
                     $sessionData['u_updated'] = $allUsers[0]['u_updated'];
                     $sessionData['u_status'] = $allUsers[0]['u_status'];
                     $sessionData['u_role'] = $allUsers[0]['u_role'];
+                    $sessionData['isLoggedIn'] = true;
                     $session->set($sessionData);
                     if ($session->get('u_id')) {
                         return  redirect()->to(site_url('home'));

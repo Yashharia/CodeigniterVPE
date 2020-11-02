@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ModPresentation extends Model
 {
     protected $DBGroup = 'default';
-    protected $table = 'presentation';
+    protected $table = 'presentations';
     protected $primaryKey = 'p_id';
     protected $returnType = 'array';
     protected $useTimestamps = true;
