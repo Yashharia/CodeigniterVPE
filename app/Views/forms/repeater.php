@@ -25,3 +25,28 @@
             });
     });
 </script>
+
+<script>
+    $(function() {
+        $(document)
+            .on("click", ".btn-add-2", function(e) {
+                e.preventDefault();
+                var controlForm = $("#myRepeatingFields-2:first"),
+                    currentEntry = $(this).parents(".entry:first"),
+                    newEntry = $(currentEntry.clone()).appendTo(controlForm);
+                newEntry.find("input").val("");
+                controlForm
+                    .find(".entry:not(:last) .btn-add-2")
+                    .removeClass("btn-add-2")
+                    .addClass("btn-remove-2")
+                    .removeClass("btn-success-2")
+                    .addClass("btn-danger-2")
+                    .html("x");
+            })
+            .on("click", ".btn-remove-2", function(e) {
+                e.preventDefault();
+                $(this).parents(".entry:first").remove();
+                return false;
+            });
+    });
+</script>

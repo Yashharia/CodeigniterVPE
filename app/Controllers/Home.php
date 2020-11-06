@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\ModPresentation;
+use App\Models\ModSpeaker;
 use App\Libraries\Upload;
-
+use App\Models\boothModel;
 
 class Home extends BaseController
 {
@@ -48,19 +49,10 @@ class Home extends BaseController
 		$this->template('staticpages/partnership-info');
 	}
 
-	public function currentpresentation()
-	{
-		$presentation = new ModPresentation();
-		$allpresentation = $presentation->findAll();
-		echo view('templates/normal-header');
-		print_r($allpresentation);
-		echo view('templates/footer');
-	}
+
 
 	public function addpresentation()
 	{
-		$presentation = new ModPresentation();
-
 		$this->template('forms/add-presentation');
 		echo view('forms/repeater');
 	}
@@ -83,10 +75,7 @@ class Home extends BaseController
 		$speakerNames =  $myrequest->getPost('speakerNames');
 		$speakerJobTitles =  $myrequest->getPost('speaker_job_titles');
 
-
-
-
-		$presentation = new ModPresentation();
+		$presentation = new ModPresentation($database);
 		helper('text');
 		$data['title'] = $myrequest->getPost('presentation-title');
 		$data['presentation_category'] = $myrequest->getPost('presentation_category');
@@ -110,16 +99,99 @@ class Home extends BaseController
 		$finalArray = [];
 
 		for ($i = 0; $i < count($files); $i++) {
-			echo '<br>File Name' . $files[$i]->getName();
-			echo '<br>Speaker Name' . $speakerNames[$i];
-			echo '<br>Speaker Job Title' . $speakerJobTitles[$i];
-			echo '<br>File Random Name' . $files[$i]->getRandomName();
-			echo '<br>File Extension' . $files[$i]->getExtension();
-			echo '<br> ------------------------';
-			$files[$i]->move('./public/uploads', $files[$i]->getRandomName());
-			array_push($finalArray, ['image' => $files[$i]->getRandomName(), 'full_name' => $speakerNames[$i], 'job_title' => $speakerJobTitles[$i], 'presentation_id' => $insert_id]);
+			$randomName = $files[$i]->getRandomName();
+			$files[$i]->move('./public/uploads', $randomName);
+			array_push($finalArray, ['image' => $randomName, 'full_name' => $speakerNames[$i], 'job_title' => $speakerJobTitles[$i], 'presentation_id' => $insert_id]);
 		}
 
 		$speakersdb->insertBatch($finalArray);
+		return redirect('/current-presentation');
+	}
+
+	public function newbooth()
+	{
+		helper(['form', 'url']);
+		$myrequest = \Config\Services::request();
+		$session = \Config\Services::session();
+		$database = \Config\Database::connect();
+		$calltoaction = $database->table('calltoactions');
+		$boothslider = $database->table('boothslider');
+
+		// slider image and videos
+		$marketingImage = $this->request->getFileMultiple("marketing_image");
+		$videoLink =  $myrequest->getPost('video_link');
+
+		//call to actions
+		$buttonName =  $myrequest->getPost('button_name');
+		$buttonLink =  $myrequest->getPost('button_link');
+
+
+		$booth = new boothModel();
+		helper('text');
+		$data['title'] = $myrequest->getPost('company-name');
+		$data['website'] = $myrequest->getPost('website-link');
+		$data['exhibitor_plan'] = $myrequest->getPost('exhibitor_plan');
+
+		$companyLogo = $myrequest->getFile('company-logo');
+		$companyLogo_rename = $companyLogo->getRandomName();
+		$companyLogo->move('./public/uploads', $companyLogo_rename);
+		$data['logo'] =  $companyLogo_rename;
+
+		$data['description'] = $myrequest->getPost('company-description');
+
+		$profile_cover_image = $myrequest->getFile('profile-cover-image');
+		if ($profile_cover_image != '') {
+			$profile_cover_image_rename = $profile_cover_image->getRandomName();
+			$profile_cover_image->move('./public/uploads', $profile_cover_image_rename);
+			$data['profile_cover_image'] =  $profile_cover_image_rename;
+		}
+
+		$data['conference_link'] = $myrequest->getPost('conference_link');
+
+		$data['show_profile_image'] = $myrequest->getPost('show_profile_image');
+		$data['show_special_offer'] = $myrequest->getPost('show_special_offer');
+		$data['special_offer_text'] =  $myrequest->getPost('special_offer_text');
+		$data['special_offer_validity'] = $myrequest->getPost('special_offer_validity');
+		$data['special_offer_link'] = $myrequest->getPost('special_offer_link');
+		$data['click_here_text_only'] = $myrequest->getPost('click_here_text_only');
+
+		$data['status'] = "pending";
+		$data["created_by"] = $session->get('u_id');
+
+		$data['conference_link'] = $myrequest->getPost('conference_link');
+
+
+		$booth->insert($data);
+		$insert_id = $booth->getInsertID();
+
+		$boothSliderArray = [];
+		$calltoactionArray = [];
+
+		//adding slider imagews and videos
+		for ($i = 0; $i < count($marketingImage); $i++) {
+			if ($marketingImage[$i] != '') {
+				$imageRandomName = $marketingImage[$i]->getRandomName();
+				$marketingImage[$i]->move('./public/uploads', $imageRandomName);
+			} else {
+				$marketingImage[$i] = '';
+				$imageRandomName = '';
+			}
+			array_push($boothSliderArray, ['image' => $imageRandomName, 'video' => $videoLink[$i], 'booth_id' => $insert_id]);
+		}
+
+
+		//adding call to actions 
+		for ($i = 0; $i < count($buttonName); $i++) {
+			array_push($calltoactionArray, ['name' => $buttonName[$i], 'link' => $buttonLink[$i],  'booth_id' => $insert_id]);
+		}
+
+		$calltoaction->insertBatch($calltoactionArray);
+		$boothslider->insertBatch($boothSliderArray);
+
+		return redirect('industry-exhibitor');
+	}
+
+	public function addAssociation()
+	{
 	}
 }

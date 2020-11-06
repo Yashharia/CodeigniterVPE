@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->group('api', function ($routes) {
+
 	$routes->group('presentation', function ($routes) {
 		$routes->get('findall', 'PresentationRestController::findAll');
 		$routes->get('find/(:any)', 'PresentationRestController::find/$1');
@@ -43,7 +44,28 @@ $routes->group('api', function ($routes) {
 	});
 });
 
-$routes->get('/add-presentation', 'Home::addpresentation', ['filter' => 'auth']);
+
+//login register
+$routes->get('/presenter-register', 'User::presenter_register');
+
+
+
+$routes->get('/add-presentation', 'Home::addpresentation');
+$routes->get('/add-association', 'AssociationController::addassociation');
+$routes->get('/add-exhibitor', 'Home::addexhibitor');
+
+// Presentations Routes
+$routes->get('/current-presentation', 'PresentationController::currentpresentation');
+$routes->get('/past-presentation', 'PresentationController::pastpresentation');
+
+// Exhibitoe Booth Routes
+$routes->get('/industry-exhibitors', 'ExhibitorController::exhibitor/industry');
+$routes->get('/premium-exhibitors', 'ExhibitorController::exhibitor/premium');
+$routes->get('/platinum-exhibitors', 'ExhibitorController::exhibitor/platinum');
+
+$routes->get('/associations', 'AssociationController::associates');
+
+
 
 $routes->group('admin', function ($routes) {
 	$routes->add('users', 'Admin\Users::index');

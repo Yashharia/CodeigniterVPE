@@ -174,8 +174,8 @@
 												<div class="second">
 													<div class="inner">
 														<ul>
-															<li id="nav-menu-item-8908" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/current-presentation/" class=""><span class="item_outer"><span class="item_text">Current Presentations</span></span></a></li>
-															<li id="nav-menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/past-presentation/" class=""><span class="item_outer"><span class="item_text">Past Presentations</span></span></a></li>
+															<li id="nav-menu-item-8908" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/current-presentation" class=""><span class="item_outer"><span class="item_text">Current Presentations</span></span></a></li>
+															<li id="nav-menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/past-presentation" class=""><span class="item_outer"><span class="item_text">Past Presentations</span></span></a></li>
 															<li id="nav-menu-item-12293" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-price-sheet/" class=""><span class="item_outer"><span class="item_text">Presenter Price Sheet</span></span></a></li>
 															<li id="nav-menu-item-10116" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-requirements/" class=""><span class="item_outer"><span class="item_text">Presenter Requirements and FAQ</span></span></a></li>
 															<li id="nav-menu-item-10269" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-registration-form/" class=""><span class="item_outer"><span class="item_text">Presenter Sign Up</span></span></a></li>
@@ -187,19 +187,19 @@
 												<div class="second">
 													<div class="inner">
 														<ul>
-															<li id="nav-menu-item-11261" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/all-exhibitors-booths/" class=""><span class="item_outer"><span class="item_text">All Exhibitors Booths</span></span></a></li>
-															<li id="nav-menu-item-11108" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/platinum-exhibitors/" class=""><span class="item_outer"><span class="item_text">Platinum Exhibitors</span></span></a></li>
-															<li id="nav-menu-item-9093" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/premium-exhibitors/" class=""><span class="item_outer"><span class="item_text">Premium Exhibitors</span></span></a></li>
-															<li id="nav-menu-item-9333" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/industry-exhibitors/" class=""><span class="item_outer"><span class="item_text">Industry Exhibitors</span></span></a></li>
-															<li id="nav-menu-item-11285" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/exhibitor-price-sheet/" class=""><span class="item_outer"><span class="item_text">Exhibitor Price Sheet</span></span></a></li>
-															<li id="nav-menu-item-10268" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/exhibitor-registration-form/" class=""><span class="item_outer"><span class="item_text">Exhibitor Sign Up</span></span></a></li>
-															<li id="nav-menu-item-9516" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/associations/" class=""><span class="item_outer"><span class="item_text">Associations</span></span></a></li>
-															<li id="nav-menu-item-9529" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/partnership-info/" class=""><span class="item_outer"><span class="item_text">Associations Partnership Info</span></span></a></li>
+															<li id="nav-menu-item-11261" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/all-exhibitors-booths" class=""><span class="item_outer"><span class="item_text">All Exhibitors Booths</span></span></a></li>
+															<li id="nav-menu-item-11108" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/platinum-exhibitors" class=""><span class="item_outer"><span class="item_text">Platinum Exhibitors</span></span></a></li>
+															<li id="nav-menu-item-9093" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/premium-exhibitors" class=""><span class="item_outer"><span class="item_text">Premium Exhibitors</span></span></a></li>
+															<li id="nav-menu-item-9333" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/industry-exhibitors" class=""><span class="item_outer"><span class="item_text">Industry Exhibitors</span></span></a></li>
+															<li id="nav-menu-item-11285" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/exhibitor-price-sheet" class=""><span class="item_outer"><span class="item_text">Exhibitor Price Sheet</span></span></a></li>
+															<li id="nav-menu-item-10268" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/exhibitor-registration" class=""><span class="item_outer"><span class="item_text">Exhibitor Sign Up</span></span></a></li>
+															<li id="nav-menu-item-9516" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/associations" class=""><span class="item_outer"><span class="item_text">Associations</span></span></a></li>
+															<li id="nav-menu-item-9529" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/partnership-info" class=""><span class="item_outer"><span class="item_text">Associations Partnership Info</span></span></a></li>
 														</ul>
 													</div>
 												</div>
 											</li>
-											<li id="nav-menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a target="_blank" href="https://virtualpropanestore.com/" class=""><span class="item_outer"><span class="item_text">Training Courses</span></span></a></li>
+											<li id="nav-menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a target="_blank" href="#" class=""><span class="item_outer"><span class="item_text">Training Courses</span></span></a></li>
 											<li id="nav-menu-item-11085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  has_sub narrow"><a href="#" class=""><span class="item_outer"><span class="item_text">FAQ</span><i class="mkdf-menu-arrow fa fa-angle-down"></i></span></a>
 												<div class="second">
 													<div class="inner">
@@ -295,8 +295,8 @@
 													<div class="second">
 														<div class="inner">
 															<ul>
-																<li id="sticky-nav-menu-item-8908" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/current-presentation/" class=""><span class="item_outer"><span class="item_text">Current Presentations</span><span class="plus"></span></span></a></li>
-																<li id="sticky-nav-menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/past-presentation/" class=""><span class="item_outer"><span class="item_text">Past Presentations</span><span class="plus"></span></span></a></li>
+																<li id="sticky-nav-menu-item-8908" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/current-presentation" class=""><span class="item_outer"><span class="item_text">Current Presentations</span><span class="plus"></span></span></a></li>
+																<li id="sticky-nav-menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/past-presentation" class=""><span class="item_outer"><span class="item_text">Past Presentations</span><span class="plus"></span></span></a></li>
 																<li id="sticky-nav-menu-item-12293" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-price-sheet/" class=""><span class="item_outer"><span class="item_text">Presenter Price Sheet</span><span class="plus"></span></span></a></li>
 																<li id="sticky-nav-menu-item-10116" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-requirements/" class=""><span class="item_outer"><span class="item_text">Presenter Requirements and FAQ</span><span class="plus"></span></span></a></li>
 																<li id="sticky-nav-menu-item-10269" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-registration-form/" class=""><span class="item_outer"><span class="item_text">Presenter Sign Up</span><span class="plus"></span></span></a></li>
@@ -320,7 +320,7 @@
 														</div>
 													</div>
 												</li>
-												<li id="sticky-nav-menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a target="_blank" href="https://virtualpropanestore.com/" class=""><span class="item_outer"><span class="item_text">Training Courses</span><span class="plus"></span></span></a></li>
+												<li id="sticky-nav-menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom  narrow"><a target="_blank" href="#" class=""><span class="item_outer"><span class="item_text">Training Courses</span><span class="plus"></span></span></a></li>
 												<li id="sticky-nav-menu-item-11085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  has_sub narrow"><a href="#" class=""><span class="item_outer"><span class="item_text">FAQ</span><span class="plus"></span><i class="mkdf-menu-arrow fa fa-angle-down"></i></span></a>
 													<div class="second">
 														<div class="inner">
@@ -349,7 +349,7 @@
 																<li id="sticky-nav-menu-item-10184" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url(); ?>/user/presenterregister" class=""><span class="item_outer"><span class="item_text">Presenter Sign Up</span><span class="plus"></span></span></a></li>
 																<li id="sticky-nav-menu-item-10185" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url(); ?>/user/exhibitorregister" class=""><span class="item_outer"><span class="item_text">Exhibitor Sign Up</span><span class="plus"></span></span></a></li>
 																<li id="sticky-nav-menu-item-11818" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url(); ?>/user/register" class=""><span class="item_outer"><span class="item_text">Attendees Sign Up</span><span class="plus"></span></span></a></li>
-																<li id="sticky-nav-menu-item-8739" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-8717 current_page_item "><a href="https://virtualpropaneexpo.com/un-login/" class=""><span class="item_outer"><span class="item_text">Log In</span><span class="plus"></span></span></a></li>
+																<li id="sticky-nav-menu-item-8739" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-8717 current_page_item "><a href="<?php echo base_url();  ?>/user/signin/" class=""><span class="item_outer"><span class="item_text">Log In</span><span class="plus"></span></span></a></li>
 															</ul>
 														</div>
 													</div>
@@ -435,8 +435,8 @@
 						</li>
 						<li id="mobile-menu-item-10053" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  has_sub"><a href="#" class=" mkdf-mobile-no-link"><span>Presentations</span></a>
 							<ul class="sub_menu">
-								<li id="mobile-menu-item-8908" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/current-presentation/" class=""><span>Current Presentations</span></a></li>
-								<li id="mobile-menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/past-presentation/" class=""><span>Past Presentations</span></a></li>
+								<li id="mobile-menu-item-8908" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/current-presentation" class=""><span>Current Presentations</span></a></li>
+								<li id="mobile-menu-item-8907" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="<?php echo base_url() ?>/past-presentation" class=""><span>Past Presentations</span></a></li>
 								<li id="mobile-menu-item-12293" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-price-sheet/" class=""><span>Presenter Price Sheet</span></a></li>
 								<li id="mobile-menu-item-10116" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-requirements/" class=""><span>Presenter Requirements and FAQ</span></a></li>
 								<li id="mobile-menu-item-10269" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/presenter-registration-form/" class=""><span>Presenter Sign Up</span></a></li>
@@ -454,7 +454,7 @@
 								<li id="mobile-menu-item-9529" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/partnership-info/" class=""><span>Associations Partnership Info</span></a></li>
 							</ul>
 						</li>
-						<li id="mobile-menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom "><a target="_blank" href="https://virtualpropanestore.com/" class=""><span>Training Courses</span></a></li>
+						<li id="mobile-menu-item-13081" class="menu-item menu-item-type-custom menu-item-object-custom "><a target="_blank" href="#" class=""><span>Training Courses</span></a></li>
 						<li id="mobile-menu-item-11085" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  has_sub"><a href="#" class=" mkdf-mobile-no-link"><span>FAQ</span></a>
 							<ul class="sub_menu">
 								<li id="mobile-menu-item-7394" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://virtualpropaneexpo.com/faq/" class=""><span>Frequently Asked Questions</span></a></li>
